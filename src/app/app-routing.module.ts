@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
 import { LayoutComponent } from './core/layout/layout.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'profile-page',
+    canActivate:[AuthGuard],
     loadChildren: () =>
       import('./features/profile-page/profile-page.module').then(
         (m) => m.ProfilePageModule
@@ -18,6 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'home-page',
+    canActivate:[AuthGuard],
     loadChildren: () =>
       import('./features/home-page/home-page.module').then(
         (m) => m.HomePageModule
@@ -25,10 +28,12 @@ const routes: Routes = [
   },
   {
     path: 'category-page',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./features/category-page/category-page.module').then(
         (m) => m.CategoryPageModule
       ),
+    
   },
   // {
   //   path: 'admin-dash',
@@ -48,5 +53,6 @@ const routes: Routes = [
     }),
   ],
   exports: [RouterModule],
+  providers:[AuthGuard]
 })
 export class AppRoutingModule {}

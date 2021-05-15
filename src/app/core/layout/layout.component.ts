@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 import { AppState } from 'src/app/app.state';
 import { LayoutTypes } from '../Enums/layoutEnums';
 import { WebAppRoutes } from '../Enums/RoutesEnum';
@@ -19,9 +20,10 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.store.select('layoutType').subscribe((info) => {
       this.layoutType = info.type;
-
       // this.loadLoginScreen = false;
     });
+
+   
   }
 
  
