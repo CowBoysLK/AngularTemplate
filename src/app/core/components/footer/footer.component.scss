@@ -1,0 +1,42 @@
+.footers {
+    background-color: #006161 !important;
+    a {
+      color: azure;
+    }
+    p {
+      color: gainsboro;
+    }
+    ul {
+      line-height: 30px;
+    }
+  }
+  
+  .social-icons {
+    padding-bottom: 15px;
+    a {
+      padding-right: 6px;
+    }
+  }
+  
+  .copyright {
+    background-color: #006161 !important;
+    p {
+      color: gainsboro;
+    }
+  }
+  #social-fb:hover {
+    color: #00ccff;
+    transition: all 1s;
+  }
+  #social-tw:hover {
+    color: #00ccff;
+    transition: all 1s;
+  }
+  #social-gp:hover {
+    color: #00ccff;
+    transition: all 1s;
+  }
+  #social-em:hover {
+    color: #00ccff;
+    transition: all 1s;
+  }

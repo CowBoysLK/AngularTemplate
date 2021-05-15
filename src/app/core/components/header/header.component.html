@@ -1,0 +1,148 @@
+    <nav class="navbar navbar-dark navbar-expand-lg navbar1">
+      <h1 class="navbar-brand brand-name" href="#" style="font-weight: 500">
+        Sample App
+      </h1>
+
+      <button
+        class="navbar-toggler nav2-toggle-btn"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarToggler2"
+        aria-controls="navbarToggler2"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="material-icons nav-toggle-icon">more_horiz</span>
+      </button>
+
+      <button
+        class="navbar-toggler nav-toggle-btn"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarToggler1"
+        aria-controls="navbarToggler1"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon nav-toggle-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-center align-items-center"
+        id="navbarToggler1"
+      >
+        <div class="container search-container" id="search">
+          <form action="#" method="post" novalidate="novalidate">
+            <div class="row align-items-center multi-search-bar">
+              <div class="col">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-12 p-0 input-container">
+                    <span
+                      class="material-icons icon"
+                      style="
+                        border-radius: 0.5rem 0 0 0.5rem;
+                        padding-top: 12px;
+                      "
+                    >
+                      list
+                    </span>
+                    <select
+                      class="form-control search-slt cat-drop-down"
+                      style="border-width: 0 1px 0 0; min-width: auto"
+                    >
+                      <option>All Categories</option>
+                      <option>Category One</option>
+                      <option>Category Two</option>
+                      <option>Category Three</option>
+                      <option>Category Four</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                    <input
+                      type="text"
+                      class="form-control search-slt search-input"
+                      placeholder="What are you looking for?"
+                      style="border-width: 0 1px 0 0"
+                    />
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0 input-container">
+                    <span class="material-icons icon loc-icon">
+                      location_on
+                    </span>
+                    <input
+                      type="text"
+                      class="form-control search-slt input-field loc-input"
+                      placeholder="Melbourne"
+                      style="border-width: 0 1px 0 0"
+                    />
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-12 p-0">
+                    <button
+                      type="button"
+                      class="btn search-btn"
+                      style="min-width: 100%"
+                    >
+                      <span class="material-icons" style="margin-top: 6px">
+                        search
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div
+          class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap d-none d-lg-block"
+        >
+          <button class="cart-button">
+            <span class="material-icons cart-icon"> shopping_cart </span>
+          </button>
+        </div>
+      </div>
+    </nav> 
+     <nav class="navbar navbar-dark navbar-expand-lg navbar2">
+      <div class="collapse navbar-collapse" id="navbarToggler2">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" (click)="goToHome()"
+            >Home <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link d-lg-none" href="#">Shopping Cart</a>
+          <a class="nav-item nav-link" href="#">About</a>
+          <a class="nav-item nav-link" href="#">Contact</a>
+        </div>
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link" (click)="goToProfile()">Profile</a>
+          
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              My Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">My App</a>
+              <div *ngIf="userLoggedIn; then logoutBtn; else loginBtn"></div>
+              <ng-template #loginBtn>
+                <a class="dropdown-item" (click)="goToLogin()">Login</a>
+              </ng-template>
+
+              <ng-template #logoutBtn>
+                <a class="dropdown-item" (click)="goToLogout()">Logout</a>
+              </ng-template>
+            </div>
+          </li>
+          <a class="nav-item nav-link d-lg-none" href="#">Notifications</a>
+          <a class="btn nav-item nav-link d-none d-lg-block" href="#"
+            ><span class="material-icons"> notifications </span></a
+          >
+         
+        </div>
+      </div>
+    </nav>

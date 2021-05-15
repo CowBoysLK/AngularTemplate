@@ -1,0 +1,110 @@
+@import "src/app/styles/variables";
+@import "src/app/styles/colors";
+
+// .btn {
+//   margin: 15px;
+// }
+
+// .a {
+//   color: azure;
+// }
+
+.layout {
+  width: 100%;
+}
+
+/************  side bar css **************/
+.layout-sidebar {
+  height: calc(100vh - 64px);
+  margin-top: 64px;
+
+  @media (max-width: $small) {
+    width: 218px;
+  }
+}
+
+.layout-content {
+  background-color: $background-color;
+  height: calc(100vh - 64px);
+  margin-top: 64px;
+
+  @media (max-width: $small) {
+    width: 100%;
+  }
+}
+
+/****** HEADER STYLING ******/
+
+/****** FOOTER STYLING ******/
+
+
+/****** MEDIA QUERIES ******/
+@media (min-width: 992px) {
+  .search-sec {
+    position: relative;
+    top: -114px;
+    background: rgba(26, 70, 104, 0.51);
+  }
+  .search-container {
+    margin-left: 10vw;
+  }
+  .multi-search-bar {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 992px) {
+  .search-sec {
+    background: #1a4668;
+  }
+  .brand-name {
+    font-size: large;
+  }
+}
+
+@media (max-width: 767px) {
+  .cat-drop-down {
+    border-radius: 0 0.5rem 0.5rem 0 !important;
+  }
+  .search-input {
+    margin-top: -6px;
+    border-radius: 0.5rem;
+  }
+  .input-container {
+    margin-top: 6px;
+  }
+  .loc-icon {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+  .loc-input {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  .search-btn {
+    border-radius: 0.5rem;
+    margin-top: -6px;
+    height: auto;
+  }
+  .nav-toggle-btn {
+    margin-top: -1rem;
+  }
+  .nav2-toggle-btn {
+    margin-top: -1rem;
+    margin-left: 70% !important;
+  }
+  .nav-toggle-icon {
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 552px) {
+  .nav2-toggle-btn {
+    margin-top: -1rem;
+    margin-left: 30vw !important;
+  }
+}
+
+@media (max-width: 189px) {
+  .nav2-toggle-btn {
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+<mat-list>
+  <mat-list-item
+    routerLink="{{ routes.ADD_DESTINATION }}"
+    routerLinkActive="active"
+  >
+    <mat-icon>home</mat-icon> Dashboard Main
+  </mat-list-item>
+  <mat-list-item
+    routerLink="{{ routes.MANAGE_DESTINATION }}"
+    routerLinkActive="active"
+  >
+    <mat-icon>text_fields</mat-icon> tile 1
+  </mat-list-item>
+  <mat-list-item routerLink="{{ routes.TABLES }}" routerLinkActive="active">
+    <mat-icon>border_all</mat-icon> tile 2
+  </mat-list-item>
+  <mat-list-item routerLink="{{ routes.NOTIFICATION }}">
+    <mat-icon>notifications_none</mat-icon> tile 3
+  </mat-list-item>
+</mat-list>
+
+<p class="sidebar-title">tile 4</p>
+
+<mat-list>
+  <mat-list-item routerLink="{{ routes.NOTIFICATION }}">
+    <mat-icon>notifications_none</mat-icon> tile 5
+  </mat-list-item>
+  <mat-list-item routerLink="{{ routes.NOTIFICATION }}">
+    <mat-icon>notifications_none</mat-icon> tile 5
+  </mat-list-item>
+</mat-list>
+
+<p class="sidebar-title">Other</p>
+
+<mat-list>
+  <mat-list-item routerLink="{{ routes.NOTIFICATION }}">
+    <mat-icon>notifications_none</mat-icon> tile 6
+  </mat-list-item>
+</mat-list>

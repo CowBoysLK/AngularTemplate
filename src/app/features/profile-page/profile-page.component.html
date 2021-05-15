@@ -1,0 +1,90 @@
+<div class="profile-container">
+  <h2>My Profile</h2>
+  <hr />
+
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <div class="left-column">
+        <img class="profile-img" [src]="profileImgSrc" />
+        <div class="username">
+          <h3>Nathan James</h3>
+        </div>
+        <div class="profile-info">
+          <p>
+            <span class="material-icons icon"> location_on </span
+            >{{ profileAddress }}
+          </p>
+          <p>
+            <span class="material-icons icon"> rate_review </span
+            >Reviews: ★ 4.8 (42)
+          </p>
+        </div>
+        <hr/>
+        <div class="profile-links">
+          <ul>
+            <!-- <li><span class="material-icons">location_on</span> Messages</li> -->
+            <!-- <li><span class="material-icons">account_balance_wallet</span>Transactions</li> -->
+            <!-- <li><span class="material-icons">shopping_basket</span>My Purchases</li> -->
+            <li><span class="material-icons">local_offer</span>My Irentaa</li>
+            <!-- <li><span class="material-icons">gavel</span>Disputes</li> -->
+            <li><span class="material-icons">add_box</span>Add New Product</li>
+            <li><span class="material-icons">create</span>Edit Profile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-8 col-sm-12" style="padding: 0;">
+      <div class="right-column">
+        <h2 class="right-col-header">Recent Purchases</h2>
+        <div class="content">
+          <div fxLayout="row wrap" fxLayoutGap="15px grid">
+            <div
+              fxFlex="25%"
+              fxFlex.xs="50%"
+              fxFlex.md="33.3%"
+              fxFlex.sm="50%"
+              *ngFor="let item of recentPurchases"
+            >
+              <mat-card class="mat-elevation-z4 item-card">
+                <img mat-card-image class="item-card-img" style="height: 18vw" [src]="item.src" />
+                <mat-card-content class="card-content">
+                  <h4 class="item-title">{{ item.title }}</h4>
+                  <div class="rating-div">
+                    <span class="material-icons"> star_rate </span>
+                    <p>{{ item.rate }}</p>
+                  </div>
+                  <p class="price-text">AUD {{ item.price }}/ Day</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <h2 class="right-col-header">Recent Rentals</h2>
+        <div class="content">
+          <div fxLayout="row wrap" fxLayoutGap="15px grid">
+            <div
+              fxFlex="25%"
+              fxFlex.xs="50%"
+              fxFlex.md="33.3%"
+              fxFlex.sm="50%"
+              *ngFor="let item of recentRentals"
+            >
+              <mat-card class="mat-elevation-z4 item-card">
+                <img mat-card-image class="item-card-img" style="height: 18vw" [src]="item.src" />
+                <mat-card-content class="card-content">
+                  <h4 class="item-title">{{ item.title }}</h4>
+                  <div class="rating-div">
+                    <span class="material-icons"> star_rate </span>
+                    <p>{{ item.rate }}</p>
+                  </div>
+                  <p class="price-text">AUD {{ item.price }}/ Day</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

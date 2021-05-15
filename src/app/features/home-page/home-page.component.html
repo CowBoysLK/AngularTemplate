@@ -1,0 +1,109 @@
+<div class="feature-container">
+  <div
+    id="carouselCaptions"
+    class="carousel slide carousel-fade"
+    data-ride="carousel"
+  >
+    <ol class="carousel-indicators">
+      <li data-target="#carouselCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselCaptions" data-slide-to="2"></li>
+      <li data-target="#carouselCaptions" data-slide-to="3"></li>
+      <li data-target="#carouselCaptions" data-slide-to="4"></li>
+      <li data-target="#carouselCaptions" data-slide-to="5"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="./assets/images/img9.jpg"
+          class="d-block w-100"
+          alt="No Image"
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h4>RV Camper</h4>
+          <p>Item description goes here.</p>
+        </div>
+      </div>
+      <div class="carousel-item" *ngFor="let item of featureItems">
+        <img [src]="item.src" class="d-block w-100" [alt]="item.alt" />
+        <div class="carousel-caption d-none d-md-block">
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.desc }}</p>
+        </div>
+      </div>
+    </div>
+
+    <a
+      class="carousel-control-prev"
+      href="#carouselCaptions"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carouselCaptions"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<div class="category-container">
+  <h2>Main Categories</h2>
+  <hr />
+
+  <owl-carousel-o
+    [options]="customOptions"
+    (translated)="getPassedData($event)"
+  >
+    <ng-container *ngFor="let category of mainCategories">
+      <ng-template carouselSlide>
+        <img
+          [src]="category.src"
+          [alt]="category.alt"
+          [title]="category.title"
+          class="main-catego-img"
+          (click)="goToProductCatagory(category.id)"
+        />
+        <h4>{{ category.title }}</h4>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
+
+<div class="category-container">
+  <h2>Recently Added</h2>
+  <hr />
+  <div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div
+        fxFlex="25%"
+        fxFlex.xs="50%"
+        fxFlex.sm="50%"
+        fxFlex.md="33.3%"
+        *ngFor="let item of recentItems"
+      >
+        <mat-card class="mat-elevation-z4 item-card">
+          <img class="item-card-img" mat-card-image [src]="item.src" />
+          <mat-card-content class="card-content">
+            <h4 class="item-title">{{ item.title }}</h4>
+            <div class="rating-div">
+              <span class="material-icons"> star_rate </span>
+              <p>{{ item.rate }}</p>
+            </div>
+            <p class="price-text">AUD {{ item.price }}/ Day</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button type="button" class="btn btn-sm">Check Availability</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
