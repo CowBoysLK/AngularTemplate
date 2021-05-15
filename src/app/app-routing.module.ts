@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
+import { LayoutGuard } from './core/guards/layout.guard';
 import { LayoutComponent } from './core/layout/layout.component';
 
 const routes: Routes = [
 
   {
     path: '',
+    canActivate:[LayoutGuard], 
     loadChildren: './features/home-page/home-page.module#HomePageModule',
     pathMatch: 'full',
   },
@@ -20,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'home-page',
-    canActivate:[AuthGuard],
+    // canActivate:[AuthGuard],
     loadChildren: () =>
       import('./features/home-page/home-page.module').then(
         (m) => m.HomePageModule
@@ -53,6 +55,6 @@ const routes: Routes = [
     }),
   ],
   exports: [RouterModule],
-  providers:[AuthGuard]
+  providers:[AuthGuard , LayoutGuard]
 })
 export class AppRoutingModule {}

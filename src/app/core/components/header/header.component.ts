@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import { LayoutTypes } from '../../Enums/layoutEnums';
+import { WebAppRoutes } from '../../Enums/RoutesEnum';
+import { UrlEnums } from '../../Enums/UrlEnums';
 import { UpdateLayoutType } from '../../store/actions/LayoutType.Actions';
 import { AuthenticateUser, UpdateUserId } from '../../store/actions/User.Actions';
 
@@ -29,6 +31,7 @@ export class HeaderComponent implements OnInit {
 
   // navigation code
   goToLogout() {
+    this.router.navigate([WebAppRoutes.HOME_PAGE]);
     this.store.dispatch(new UpdateLayoutType(LayoutTypes.LOGIN));
     this.store.dispatch(new AuthenticateUser(''));
     this.store.dispatch(new UpdateUserId(''));
