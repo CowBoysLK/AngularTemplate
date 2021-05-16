@@ -7,18 +7,22 @@ import { AppState } from 'src/app/app.state';
 import { LayoutTypes } from '../Enums/layoutEnums';
 import { UrlEnums } from '../Enums/UrlEnums';
 import { UpdateLayoutType } from '../store/actions/LayoutType.Actions';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+  
   constructor(private store: Store<AppState>, private router: Router){}
   canActivate(): Observable<boolean> | boolean {
-
+    const helper = new JwtHelperService();
     return this.store.select('authInfo')
       .pipe(
         map(info => {
-          if (info.authToken !== '' && info.userId !== '') {
+          
+          if (info.authToken !== '' && info.userId !== '' && !helper.isTokenExpired(info.authToken)) {
+            
             return true;
           }
           else {

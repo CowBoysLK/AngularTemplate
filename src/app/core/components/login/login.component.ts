@@ -15,6 +15,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 import { UserAuthentication } from '../../Services/Login/loginAuth';
 import { GoogleAuthInfo } from '../../Models/AuthInfo.Model';
+import { templateJitUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -101,8 +102,10 @@ export class LoginComponent implements OnInit {
     this.password = this.passwordElement.nativeElement.value;
     if (this.email !== '' && this.password !== '') {
       console.log('logging the user in');
-      this.store.dispatch(new AuthenticateUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhwIjoxNDI2NDIwODAwLCJodHRwOi8vdG9wdGFsLmNvbS9qd3RfY2xhaW1zL2lzX2FkbWluIjp0cnVlLCJjb21wYW55IjoiVG9wdGFsIiwiYXdlc29tZSI6dHJ1ZX0yRQYnWzskCZUxPwaQupWkiUzKELZ49eM7oWxAQK_ZXw"));
-      this.store.dispatch(new UpdateUserId("dinith72"));
+      // temp token valid till Aug 16
+      const tempToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZmYzZDFjZC0yMWJkLTRmYzgtOGU2NS0xMGUzYWUxMmU4NjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiNGZmM2QxY2QtMjFiZC00ZmM4LThlNjUtMTBlM2FlMTJlODY2IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVmlzaXRvciIsInVuaXF1ZV9uYW1lIjoiZGluaXRoMTIzQHlvcG1haWwuY29tIiwiaWF0IjoiNS8xNi8yMDIxIDEwOjAyOjI2IEFNIiwibmJmIjoxNjIxMTU5MzQ2LCJleHAiOjE2MjkxMDgxNDYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzY3IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNjcifQ.-Hp8Pw_urL10HORPrk0QdOnHbTyKtjdgYT3KmzLs7lU';
+      this.store.dispatch(new AuthenticateUser(tempToken));
+      this.store.dispatch(new UpdateUserId('dinith72'));
       this.store.dispatch(new UpdateUserType(UserTypes.BUYER));
       this.store.dispatch(new UpdateLayoutType(LayoutTypes.WITH_HEADER));
 
